@@ -2,7 +2,7 @@
 
 from setuptools import setup, find_packages
 
-install_requires = ('dxfwrite','lxml')
+install_requires = ('dxfwrite','lxml','svgutils')
 
 setup(name='Gear_Generator',
       version='1.0',
