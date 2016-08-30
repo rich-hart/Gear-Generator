@@ -277,7 +277,7 @@ def _positive_float(raw_val):
 import argparse
 import sys
 
-def run_with_args(input_args):
+def main(argv=None):
     parser = argparse.ArgumentParser(description='Generate involute gears.')
     parser.add_argument('-n', type=_positive_int, required=True, help='The number of teeth.')
     parser.add_argument('-p', type=_positive_int, required=True, help='The pitch.')
@@ -290,7 +290,7 @@ def run_with_args(input_args):
     parser.add_argument('-s', type=str, help='The SVG file to output.')
     parser.add_argument('--svg_scale', type=_positive_float, default=1, help='The amount by which to scale the SVG output.')
     parser.add_argument('-d', type=str, help='The DXF file to output.')
-    args = parser.parse_args(input_args)
+    args = parser.parse_args(argv)
     
     # Make sure at least one output file was specified
     if args.s == None and args.d == None:
@@ -314,4 +314,4 @@ def run_with_args(input_args):
         geom.write_dxf(args.d)
 
 if __name__ == '__main__':
-    run_with_args(sys.argv)
+    main()
